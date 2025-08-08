@@ -1,0 +1,81 @@
+O que é React ?
+- É uma biblioteca JavaScript para desenvolvimento de aplicações front-end
+- São chamadas de SPA (Single Page Application)
+- React é baseado em componentes
+- Criado pelo Facebook
+
+O que é NodeJs ?
+- O Node é um run2time de JavaScript
+- Uma biblioteca utilizada para compilar durante a execução de um programa
+- Construir aplicações do lado do servidor
+- Esta construida na V8 engine, criado pelo Google
+
+O que é npm ?
+- É um gerenciador de pacote do Node
+- você utiliza bibliotecas de terceiros utilizando o npm
+- Os modulos que são baixados ficam em uma pasta chamada node_modules
+- Essa pasta node_modules deve ser descartavel, ou seja, a cada instalação do 
+projeto baixamos todos os pacotes novamente com o comando 'npm install'
+
+Criar projeto em React
+- Criando aplicações em REact com um executor de script do Node, que é npx
+- 'npx create-react-app<nome>' irá gerar a aplicação em React
+- Para iniciar a aplicação 'npm start' irá rodar o projeto localmente, além de criar um endereço de ip
+
+Criar projeto em React com Vite
+- npm create vite@latest ou npm init vite 
+- Para rodar o projeto digite 'npm run dev' que é o script que ele criou de forma automatica dentro de package.json
+
+Estrutura base do React
+- node_modules: Onde as dependências do projeto ficam;
+- public: Assets estáticos e html de inicialização;
+- src: Onde vamos programar as nossas apps;
+- src/index.jsx: Arquivo de inicialização do React;
+- src/App.js: Componente principal da aplicação;
+
+Extensão que ajuda a acelerar o desenvolvimento
+- ES7 React/Redux/GraphQL/React-Native
+
+Criação de componentes
+- Na maioria das vezes componentes ficam em pastas chamada componentes
+- Nomeadas com camel case: FistComponents.jsx
+- Criar uma função e depois exporta-la com 'export default nome-da-funcao'
+- Pela convenção quando for criar componente, utilizar arrow function
+
+Importar componentes
+- Utiliza-se a sintaxe: import X from './components/X
+- Para colocar o componente dentro do arquivo, colocar em forma de tag: <FistComponents/>
+
+Comentarios no componente
+- Na parte da função onde é executada a lógica: //Algum comentario;
+- E também no jsx: {/*Algum comentario*/} sempre dentro de alguma div por exemplo 
+
+Template Expressions
+- É um recurso que nos permite executar JS no JSX e interpolar variaveis
+- A sintaxe é {algumCodigoEmJS} como se fosse template literals em js
+- Tudo que ta entre as chaves é processado em JS e nos retorna um resultado
+Ex: <p>Você tem {idade} anos.</p>
+
+Hierarquia de componentes
+- Componentes podem ser reutilizados em varios componentes
+- Podem formar uma hierarquia, sendo importados uns dentro dos outros
+
+Eventos de click
+- Eventos de click são essenciais, em Recat podemos utilizar o onClick para
+ativar uma função ao clicar em um elementos
+- Essa função é criada na propria função do componente 
+- Geralmente tem o padrão, como por exemplo: handleAlgumaCoisa;
+- Temos funções inline, definida fora do JSX e funções para serem executadas imediamente
+
+* inline: <button onClick={() => alert("Button 1 clicked!")}>Click Me</button>
+* fora do JSX: Define a funçõa fora do jsx   
+const handleClick = () => {
+    alert("Button 2 clicked!");
+  };
+
+  e chama dentro do botão:  <button onClick={handleClick}>Click Me 2</button>
+*função executada imediamente: Mesma coisa da anterior porem passando ():  <button onClick={handleClick2()}>Click Me 3</button>
+
+Funções de renderização
+- Podemos criar funções que retornam JSX dinãmicamente
+- Serve para criar situações que dependem de outras condições
