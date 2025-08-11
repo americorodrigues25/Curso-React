@@ -79,3 +79,43 @@ const handleClick = () => {
 Funções de renderização
 - Podemos criar funções que retornam JSX dinãmicamente
 - Serve para criar situações que dependem de outras condições
+
+Imagens no React
+- Imagens publicas podem ficar na pasta public e podem ser chaadas pela /nome.jpeg;
+- Por padrão em imagens dos projetos é colocar em uma pasta chamada Assets
+- Em assets precisamos importar as imagens, e o src é dinâmico com o nome da importação
+
+Hooks
+- Hooks são recursos do react que tem diversas funções
+- Guardar e alterar o estado de algum dado na aplicação
+- Todo hooj começa com use, como useState
+- Hooks precisam ser importados 
+
+useState Hooks
+- Um dos mais utilizados
+- Usamos para gerenciar o estado de algum dado
+- Para guardar o dado definimos o nome da variavel e para alterar vamos utilizar setNome, onde nome é o nome do nosso dado
+
+Renderizar listas
+- Uma ação bem comum é renderizar listas de dados no template
+- Utilizando o método map, no array
+- E podemos iserir jsx em cada interação
+- No React, usamos ele para transformar cada item de um array em um elemento JSX
+
+Propriedade Key na renderização de listas
+- O react precisa de uma chave unica em cada itens do array
+- Isso ajdua na renderização do componente, pois o react precisa saber qual item mudou na renderização
+- Por este motivo cada item precisa ter um id
+
+Previous state
+- É um recurso que permite pegar um dado em seu valor original dentro de um set de dado
+- Utilizado para modificar listas, pois temos o valor antigo transformamos em um valor novo
+
+Renderização condicional
+- É quando imorimimos uma parte de um template baseado numa condição
+- Ex: Usuario autenticado e não autenticado
+
+Else 
+- Utiliza-se tambem if/else no jsx
+- Usamos com if ternario
+- Onde a sintaxe será: condição ? bloco 1 : bloco 2
