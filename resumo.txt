@@ -119,3 +119,25 @@ Else
 - Utiliza-se tambem if/else no jsx
 - Usamos com if ternario
 - Onde a sintaxe será: condição ? bloco 1 : bloco 2
+
+Props
+- Props nos permite passar valores de um componente pai para um componente filho
+- Util quando os dados forem carregados via banco de dados
+- As props vem em um objeto no argumento da função do componente
+--------------------------------------------------------------------------------------
+function Saudacao({ nome }) {
+  return <h1>Olá, {nome}!</h1>;
+}
+
+// Usando o componente
+<Saudacao nome="Américo" />
+<Saudacao nome="Maria" />
+--------------------------------------------------------------------------------------
+nome é uma prop.
+Saudacao mostra mensagens diferentes dependendo do valor que recebe.
+
+Desestruturando props
+- É super comum passar mais de uma props em um componente
+- Para facilitar isso o react nos permite desestruturar as propriedades que chegam, com uso do destructing
+- Ex: temos duas propriedades: name e age
+- Podemos fazer uma função assim: function MyComponent({name, age})
