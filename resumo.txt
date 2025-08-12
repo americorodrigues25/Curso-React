@@ -141,3 +141,35 @@ Desestruturando props
 - Para facilitar isso o react nos permite desestruturar as propriedades que chegam, com uso do destructing
 - Ex: temos duas propriedades: name e age
 - Podemos fazer uma função assim: function MyComponent({name, age})
+
+Reutilização de componentes
+- Com a props a reutilização de componentes começa a fazer mais sentido
+- Se temos 1000 dados iguais por exemplo, podemos reaproveitar o Componente
+
+Reutilização com loop
+- Os arrays podem ter muitos itens
+- O correto nesse caso é utilizar a etrutura de loop (map) para exibir na tela
+
+React Fragments
+- São interessantes para quando precisamos ter mais de um elemento pai em um componente
+- Criamos a tag vazia <> </>
+- Serve como elemento pai, não alterando a estrutura do html como a div
+
+Children prop
+- É utilizado quando um componente precisa ter jsx dentro dele
+- Permite criar componentes reutilizáveis onde o conteúdo muda.
+- Você não precisa passar o conteúdo por props específicas como title, text, etc.
+
+Funções me props
+- Podem ser passadas para as props normalmente
+- Basta criar a função no componente pai e enviar a prop para o componente
+-  E no componente filho vai ser ativada por meio de um evento
+
+Elevação de state
+- state lift é quando um valor é elevado do componente filho para o componente pai
+- Geralmente temos um componente que usa state e outro que altera 
+
+CSS global
+- É utilizado para estilizar elementos em comum ou fazer um reset no CSS
+- Utiliza-se o arquivo index.CSS
+- Fica na pasta src
