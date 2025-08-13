@@ -1,0 +1,10 @@
+p {
+    color: brown;
+}
+
+.myComponent {
+    background-color: lightblue;
+    padding: 20px;
+    border-radius: 5px;
+    color: darkblue;
+}

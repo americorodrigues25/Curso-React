@@ -173,3 +173,58 @@ CSS global
 - É utilizado para estilizar elementos em comum ou fazer um reset no CSS
 - Utiliza-se o arquivo index.CSS
 - Fica na pasta src
+
+CSS do componente
+- É utilizado em um componente em especifico
+- Geralmente é criado um arquivo com o mesmo nome do componente
+- Devemos apenas tomar cuidado para estilos de um componente não acabar pegando no outro, resolvemos isso passando
+estilos nas classes ao invés das tags
+
+CSS inline
+- Passamos estilos css por meio do atributo style
+- Devemos optar por outras maneiras de aplicar css, o inline pode dificultar a manutenção do codigo
+- A sintaxe é: style={{color: 'red'}}
+
+CSS style dinâmico
+- O CSS dinamico inline aplica estilo baseado em uma condição
+- Insere no atributo if ternario e dependendo da condição podemos mudar as regras de estilo que um
+elemento recebe
+- Ex: <h2 style={n > 10 ? { color: "purple" } : { color: "blue" }}></h2>
+
+Classes dinâmicas no css
+- Utilizamos logica para alterar classe de um elemento, com if ternario
+- Mais interessante do que css inline, pois as classes estarão isoladas no arquivo css, mantendo a organização do codigo
+
+CSS module 
+- É um recurso do css scoped
+- Vai ser exclusivo do componente
+- O nome do arquivo é: Componente.modules.css
+- O arquivo modules não lê muito bem classe com my-title, sendo assim a melhor pratica é colocar my_title
+
+Formulario e React
+- No React tambem utiliza-se a tag form para formularios
+As labels dos inputs contem o atributo htmlFor, que deve ter o valor do name do inputs
+Não utiliza-se action, pois o processamento é feito de forma assincrona
+
+LAbel envolvendo inputs
+- É padrão comum a tag label envolver o inputs
+- Isso torna o html for opcional
+- Simplifica a estrutura html sem perder a semântica
+
+Manipulação de valores
+- Para manipular os valores dos inputs vamos utilizar o hook useState
+- Ou seja podemos armazenar na variavel e utlizar o set para alterar o valor
+
+Simplificando a Manipulação
+- Quando temos varios inputs podemos realizar uma manupulação de forma mais simples
+- Basicamente uma função inline no onChange
+- Vai alterar o valor do state com o metodo set, da mesma forma que a função isolada
+
+Envio de formularios
+- Para enviar vamos utilizar o evento onSubmit
+- Ele chamara uma função e nesta devemos lembrar de para a submissão com o precentDefault
+
+Controlled inputs
+- É um recurso que nos permite mais flexibilidade nos forms de React
+- Precisa apenas igualar o valor do state
+- Muito comum em: formularios de edição, que os dados vem do back-end, conseguimos preencher o input mais facilmente
