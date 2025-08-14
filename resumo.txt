@@ -228,3 +228,8 @@ Controlled inputs
 - É um recurso que nos permite mais flexibilidade nos forms de React
 - Precisa apenas igualar o valor do state
 - Muito comum em: formularios de edição, que os dados vem do back-end, conseguimos preencher o input mais facilmente
+
+Resetando formularios
+- Com o controller inputs limpar o form fica mais facil
+- Basta atribuir um valor de uma string vazia aos states 
+- Isso é feito após o envio do formulario

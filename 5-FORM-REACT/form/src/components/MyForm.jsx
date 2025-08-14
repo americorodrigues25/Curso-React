@@ -17,6 +17,10 @@ const MyForm = ({user}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault(); // Evita que o formulario recarregue a página
+    
+    // 7 - Limpar formulario
+    setName('');
+    setEmail('');
   };
 
   return (
