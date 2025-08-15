@@ -24,7 +24,7 @@ function App() {
   const [gameStage, setGameStage] = useState(stages[0].name);
   const [words] = useState(wordsList);
 
-  const [pickedWord, setPickedWord] = useState("");
+  const [pickedWord] = useState("");
   const [pickedCategory, setPickedCategory] = useState("");
   const [letters, setLetters] = useState([]);
 
@@ -33,7 +33,7 @@ function App() {
   const [guesses, setGuesses] = useState(guessesQty);
   const [score, setScore] = useState(50);
 
-  const pickWordAndCategory = () => {
+  const pickWordAndCategory = useCallback(() => {
     // pick a random category
     const categories = Object.keys(words);
     const category = categories[Math.floor(Math.random() * categories.length)];
@@ -45,10 +45,16 @@ function App() {
 
     console.log(word);
     return { word, category };
-  };
+  }, [words]);
 
   //startd the secret word game
-  const startGame = () => {
+  const startGame = useCallback(() => {
+    // clear all letters
+    clearLetterState();
+
+    // reset guesses
+    setGuesses(guessesQty);
+
     // pick word and pick category
 
     const { word, category } = pickWordAndCategory();
@@ -66,7 +72,7 @@ function App() {
     setLetters(wordLetters);
 
     setGameStage(stages[1].name);
-  };
+  }, [pickWordAndCategory]);
 
   // process the letter input
   const verifyLetter = (letter) => {
@@ -117,14 +123,14 @@ function App() {
     const uniqueLetters = [...new Set(letters)];
 
     // win condition
-    if (guessedLetters.length === uniqueLetters.length) {
+    if (guessedLetters.length === uniqueLetters.length && gameStage === stages[1].name) {
       // add score
       setScore((actualScore) => (actualScore += 100));
 
       // restart game with new word
       startGame();
     }
-  }, [guessedLetters]);
+  }, [guessedLetters, letters, startGame, gameStage]);
 
   // restarts the game
   const retry = () => {
