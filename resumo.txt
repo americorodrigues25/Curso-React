@@ -243,3 +243,37 @@ Input de select
 - Semelhante aos outros inputs
 - Quando temos alteração de um valor o evento onChange pode captar isso
 - O value também pode atribuir qual option estará selecionada
+
+JSON Server
+É um pacote npm
+- Ele simula uma API, e isso possibilita fazer requisições http
+- É usado para criar e testar apis sem precisar criar um back end
+- Sintaxe do json:
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Camisa",
+            "price": 59.9
+        },
+        {
+            "id": 3,
+            "name": "Boné aba curva",
+            "price": 109.9
+        }
+    ]
+}
+- Instalar o json com o comando: npm install json-server
+- Dentro do arquivo package.json criar o script: json-server --watch data/db.json
+- E rodar no terminal npm run server
+
+- A importância sobre o useEffect
+- Faz com que determinada ação seja executada apenas uma vez
+- Isso é interessante pois os componente estão sempre se renderizando, então precisamos ter ações unicas as vezes
+- O useEffect possui um array de dependências, que deve conter os dados que ativem a execução da função de forma automatica
+- Sempre estará presente nas requisições assincronas 
+
+- Resgatando dados com react
+- Primeiro precisamos ter um local para salvar os dados (useState)
+- Renderizar a chamada a API apenas uma vez (useEffect)
+- Um meio de fazer a requisição assincrona (Fetch API)
