@@ -1,19 +1,19 @@
 {
-    "products": [
-        {
-            "id": 1,
-            "name": "Camisa",
-            "price": 59.9
-        },
-        {
-            "id": 2,
-            "name": "Calça jeans",
-            "price": 89.9
-        },
-        {
-            "id": 3,
-            "name": "Boné aba curva",
-            "price": 109.9
-        }
-    ]
+  "products": [
+    {
+      "id": "8d4b",
+      "name": "Camiseta Nike",
+      "price": "109.9"
+    },
+    {
+      "id": "f3d4",
+      "name": "Tenis Nike Air Force",
+      "price": "599"
+    },
+    {
+      "id": "a406",
+      "name": "Blusa Moletom Adidas",
+      "price": "299"
+    }
+  ]
 }

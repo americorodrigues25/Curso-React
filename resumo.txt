@@ -277,3 +277,74 @@ JSON Server
 - Primeiro precisamos ter um local para salvar os dados (useState)
 - Renderizar a chamada a API apenas uma vez (useEffect)
 - Um meio de fazer a requisição assincrona (Fetch API)
+
+Adicionando dados 
+- Para adicionar um item vamos pegar os dados do form com useState
+- Reunir todos e uma função após o submit e enviar um request de POST para a API 
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();  // evita que a página recarregue quando o formulário é enviado
+
+    const product = {
+      name,
+      price,
+    }; // cria um objeto com os valores que o usuário digitou
+
+    const res = await fetch(url, {
+      method: "POST", // diz que queremos enviar (criar) algo no servidor 
+      headers: {
+        "Content-Type": "application/json", // avisa que estamos mandando dados em JSON
+      },
+      body: JSON.stringify(product), // transforma o objeto JS em JSON para poder enviar
+    });
+  };
+
+Carregamento dinâmico de dados 
+- Se a requisição foi feita com sucesso, podemos adicopnar o item a lista após o request
+
+Custom hook para o fetch
+- Normalmente dividimos funções me funções que podem ser reaproveitadas 
+- Essa tecnica é chamada de custom hook
+- Geralmente ficam na pasta 'hooks'
+
+Estado de loading
+- Quando nos fazemos requisições para API´s é normal que haja um intervalo de loading entre a requisição e o recebimento da resposta
+- Podemos fazer isso em um hook também
+- Identificando quando omeça e quando termina esse estado
+
+Estado de loading no POST
+- Pode também bloquear ações indevidas em outras requests como no POST
+- Ex: para aqueles usuarios que não esperam a ação terminar e ja ficam clicando varias vezes até aparecer algo na tela,
+isso evitar adicionar itens duplicados
+
+Tratamento de erros com try catch
+- Podemos tratar os erros das requisições por meio de try catch
+- Além de pegar os dados do erro, também podemos alterar um state para imprimir um elemento se algo der errado
+
+Fetch e await
+fetch() é uma função em js para fazer requisições HTTP 
+await só funciona dentro de async, ele pausa a execução da função até que a promisse seja resolvida
+
+Como fetch + await funcionam juntos no React
+useEffect(() => {
+  const fetchData = async () => {
+    const res = await fetch("http://localhost:3000/products"); // vai buscar os dados
+    const data = await res.json(); // transforma resposta em objeto JS
+    setProducts(data); // atualiza o estado e renderiza na tela
+  };
+
+  fetchData();
+}, []);
+
+- fetch() envia a requisição HTTP ao servidor.
+- await faz o React esperar a resposta.
+- res.json() transforma a resposta em objeto.
+- setProducts() atualiza o estado e dispara a renderização.
+
+promisse
+Uma Promise (promessa) é um objeto que representa uma operação assíncrona (ou seja, algo que vai acontecer no futuro).
+
+Ela pode estar em 3 estados:
+- Pending (pendente) → ainda está rodando (aguardando resposta).
+- Fulfilled (resolvida) → deu certo ✅ (retorna o resultado).
+- Rejected (rejeitada) → deu errado ❌ (retorna um erro).
