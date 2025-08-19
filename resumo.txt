@@ -371,3 +371,21 @@ Rotas dinâmicas
 - E terá o padrão de /product/:id
 - Onde :id é o dado dinâmico, ou seja, poderá ter qualquer valor
 - Na página pdemos utilizar o hook useParams para resgatar esta informação
+
+Carregamento de dado individual
+- Utilizamos normalmente o hook criado para trazer os dados
+
+Nested route 
+- Indicam urls mais complexas como: /product/:id/something  
+- Precisa criar um componente que corresponda com o padrão indicado e também a URL em App.js 
+- Na Nested route tem o acesso ao parâmetro da url também
+
+Página 404
+- Pode-se criar facilmente a página 404 com react Router
+- É só criar o componente da página e no arquivo App.js definir um path como *
+- Desta maneira qualuer rota que não existir cairá neste componente
+
+Link ativo
+- Para ter facil acessi a uma modificação para os links ativos troca-se o link pelo navlink
+- Neste elemento temos acesso a um valor chamadi isActive
+- Ou seja, pode ativar uma classe se a rota atual for a que esta no atributo to

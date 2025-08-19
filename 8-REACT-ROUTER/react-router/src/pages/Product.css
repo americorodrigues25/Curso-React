@@ -1,0 +1,35 @@
+.container-details {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 30px;
+  border-radius: 20px;
+  box-shadow: 60px -16px teal;
+  background-color: cadetblue;
+  padding-bottom: 25px;
+}
+
+.container-details h2 {
+  color: #f6f6f6;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.container-details p {
+  color: #272727;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.container-details a {
+  color: #272727;
+  text-decoration: none;
+  transition: .3s all;
+}
+
+.container-details a:hover {
+    transform: scale(1.1);
+}
