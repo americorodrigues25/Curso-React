@@ -348,3 +348,26 @@ Ela pode estar em 3 estados:
 - Pending (pendente) → ainda está rodando (aguardando resposta).
 - Fulfilled (resolvida) → deu certo ✅ (retorna o resultado).
 - Rejected (rejeitada) → deu errado ❌ (retorna um erro).
+
+React Router
+- É um dos pacotes mais utilizados para criar uma estrutura de rotas em aplicações de React
+- Precisa instalar no nosso projeto
+- A configuração e instalação é bem simples 
+
+Configurando o React Router
+- Para configurar o Recat router é necessario importar três elementos do react-router-dom
+- BrowserRouter: Define onde a area do nosso app que vai trocar as páginas
+- Router: Define as rotas
+- Router: um elemento deste para cada rota, configurar com path e componente da rota 
+
+Navegação entre páginas
+- Para criar links para as páginas precisa utilizar o link do react Router
+- No link configura to, que recebe a URL/path que será redirecionado quem clicar no link
+QUANDO UM COMPONENTE TEM ELEMENTOS DO REACT ROUTER, É OBRIGATORIO COLOCAR DENTRO DO BROWSERROUTER
+
+Rotas dinâmicas
+- Rotas dinâmicas são aquelas que mudam conforme um parâmetro na URL
+- Para criar uma nova rota dinãmica deve definir uma nova Route em App.js
+- E terá o padrão de /product/:id
+- Onde :id é o dado dinâmico, ou seja, poderá ter qualquer valor
+- Na página pdemos utilizar o hook useParams para resgatar esta informação
