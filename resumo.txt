@@ -388,4 +388,28 @@ Página 404
 Link ativo
 - Para ter facil acessi a uma modificação para os links ativos troca-se o link pelo navlink
 - Neste elemento temos acesso a um valor chamadi isActive
-- Ou seja, pode ativar uma classe se a rota atual for a que esta no atributo to
+- Ou seja, pode ativar uma classe se a rota atual for a que esta no atributo to 
+Link → Navegação simples, sem classe extra.
+NavLink → Navegação + detecta rota ativa, facilitando estilização automática (menus, headers, etc).
+
+Search Params
+- Search Params é um recurso que permite obter o que vem na url em forma de parâmetro, ex: produtos?q=camisa
+- Utiliza-se o hook useSearchParams para obter
+- Com isso se torna mais facil fazer uma fucionalidade de busca no sistema
+
+Redirect 
+- As vezes pode-se precisar de um redirecionamento de páginas
+Ex: uma página antiga so sistema responde agora a uma nova URL
+- Criamos uma rota com route e em element utiliza-se o component Navigate com um to que vai para rota correta
+
+Context API 
+- Recurso que facilita o compartilhamento de um estado entre componentes 
+- ou sejal, quando precisa de dados 'globais' provavelmente vai utilizar o Context
+- O context encapsula os componentes que irão receber seus valores, geralmente coloca no App.js ou index.js
+- E os contexts geralmente ficam na pasta context
+
+Provider
+- Vai delimitar onde o contexto é utilizado 
+- Cria-se uma espécie de componente com a prop Children
+- E este provider deve encapsular os demais componentes em que precisa consultar ou alterar o valor
+- Geralmente fica em App.js ou index.js 

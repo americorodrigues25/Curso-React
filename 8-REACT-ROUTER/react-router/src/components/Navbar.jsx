@@ -1,13 +1,21 @@
 // 2 - Links com react router
 import './Navbar.css';
 
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     return (
         <nav>
-            <Link to="/">Home</Link>
-            <Link to="about">Sobre</Link>
+            {/* <Link to="/">Home</Link>
+            <Link to="about">Sobre</Link> */}
+
+            {/* link com navlink */}
+            <NavLink to="/"
+                // className={({ isActive }) => (isActive ? 'esta-ativo' : 'nao-ativo')}
+            >
+                Inicio
+            </NavLink>
+            <NavLink to="/about">Sobre</NavLink>
         </nav>
     )
 }
