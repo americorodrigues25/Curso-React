@@ -1,11 +1,20 @@
-import React from 'react'
+import { useContext } from "react";
+
+import { CounterContext } from "../context/CounterContext";
+
+import { useTitleColorContext } from "../hooks/useTitleColorContext";
 
 const Services = () => {
-    return (
-        <div>
-            Services
-        </div>
-    )
-}
+  const { counter } = useContext(CounterContext);
 
-export default Services
+  const { color } = useTitleColorContext();
+  return (
+    <div>
+      <h2 style={{ color: color }}>Serviços</h2>
+      Valor do contador a página serviços
+      <p>{counter}</p>
+    </div>
+  );
+};
+
+export default Services;

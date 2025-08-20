@@ -413,3 +413,17 @@ Provider
 - Cria-se uma espécie de componente com a prop Children
 - E este provider deve encapsular os demais componentes em que precisa consultar ou alterar o valor
 - Geralmente fica em App.js ou index.js 
+
+Alterando o contexto
+- Para alterar o valor do contexto precisamos criar um componente que utilize a função da mudança de contexto 
+- Essa mudança ira ocorrer no context e podera ser consumida por todos os componentes que recerebem o contexto
+
+Refatotar context com hook
+- Da para criar hook para utilizar o contexto 
+- Com isso nçao é necessario importar useContext em todos os lugares que irá utilizar o contexto, só no hook 
+
+Contextos mais complexos
+- COntextos mais complexos podem ter variações no comportamento
+- Para isso utiliza-se um hook chamado useReducer
+- Que é como um useState mas para controle de dados complexos 
+- No reducer tem diferentes ações com um switch
