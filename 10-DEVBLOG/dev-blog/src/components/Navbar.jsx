@@ -1,27 +1,52 @@
 // css
-import styles from './Navbar.module.css';
+import styles from "./Navbar.module.css";
 
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
-    return (
-        <div>
-            <nav className={styles.navbar}>
-                <NavLink to="/" className={styles.brand}>
-                    Dev <span>Blog</span>
-                </NavLink>
-                <ul className={styles.links_list}>
-                    <li>
-                        <NavLink to="/" className={({ isActive }) => (isActive ? styles.active : "")}>Inicio</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/about" className={({ isActive }) => (isActive ? styles.active : "")}>Sobre</NavLink>
-                    </li>
+  return (
+    <div>
+      <nav className={styles.navbar}>
+        <NavLink to="/" className={styles.brand}>
+          Dev <span>Blog</span>
+        </NavLink>
+        <ul className={styles.links_list}>
+          <li>
+            <NavLink
+              to="/"
+              className={({ isActive }) => (isActive ? styles.active : "")}
+            >
+              Inicio
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/login"
+              className={({ isActive }) => (isActive ? styles.active : "")}
+            >
+              Entrar
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/register"
+              className={({ isActive }) => (isActive ? styles.active : "")}
+            >
+              Cadastrar
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/about"
+              className={({ isActive }) => (isActive ? styles.active : "")}
+            >
+              Sobre
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  );
+};
 
-                </ul>
-            </nav>
-        </div>
-    )
-}
-
-export default Navbar
+export default Navbar;

@@ -7,12 +7,13 @@
 }
 
 .brand {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 
 .brand span {
     font-weight: 900;
     text-transform: uppercase;
+    color: #222222;
 }
 
 .links_list {
@@ -25,10 +26,11 @@
 }
 
 .links_list li a {
-    padding: .4rem .6rem;
+    padding: .5rem .7rem;
 }
 
 .active {
     background-color: #222222;
     color: #d9d9d9;
+    border-radius: 10px;
 }
