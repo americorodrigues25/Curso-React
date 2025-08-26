@@ -427,3 +427,23 @@ Contextos mais complexos
 - Para isso utiliza-se um hook chamado useReducer
 - Que é como um useState mas para controle de dados complexos 
 - No reducer tem diferentes ações com um switch
+
+Hooks 
+useState
+- Um dos principais hooks do react
+- Ele gerência valores
+- Podemos consultar e alterar valores
+
+useState e inputs 
+- Atrelando o useState a um input podemos fazer algumas ações 
+- Alteração de um state por evento de onChange 
+- Limpeza de inputs (controlled input)
+- Após preenchimento total do form, unir os states e fazer um envio dos dados para o back end 
+
+onClick → ação de clique.
+onChange → captura de valores digitados/selecionados.
+onSubmit → envio de dados do formulário.
+
+useReducer 
+- Tem a mesma função do useState, ele gerência valores 
+- Porém temos a possibilidade de executar uma função na hora da alteração do valor
