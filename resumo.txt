@@ -468,3 +468,17 @@ useEffect com array de depêndencias
 Limpeza do useEffect
 - Alguns efeitos precisam ter uma técnica de cluanup para garantir o seu funcionamento 
 - Não fazer isso pode gerar erros  comportamentos indesejados 
+
+useContext 
+- Cria-se o contexto e tambem o provider 
+- Envolver os componentes que recebrão valores compartilhados 
+- Compartilha dados entee componentes sem precisar ficar passando props entre eles
+
+
+useRef
+- Pode ser utilizado como useState para gerênciar valores 
+- A diferença é que ele é um objeto, seu valor está na propriedade current 
+- Outra particularidade do useRefé que ele não re-renderiza o componente ao ser alterado
+
+useRef e o DOM 
+- Pode ser utilizado para selecionar elementos do JSX
