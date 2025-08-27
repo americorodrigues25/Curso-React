@@ -447,3 +447,24 @@ onSubmit → envio de dados do formulário.
 useReducer 
 - Tem a mesma função do useState, ele gerência valores 
 - Porém temos a possibilidade de executar uma função na hora da alteração do valor
+
+useEffect 
+- É utilizado para varias ações no nosso App
+- Podemos realizar desde alterações na DOM a requisições HTTP
+- Consehuimos controlar quantas vezes algo acontece 
+- A sintaxe é formada por uma função a ser executada e um array de dependências
+- Se não houver array de depêndencias a logica sempre sera executada quando o componente renderiza
+
+useEffect com array vazio 
+- Uma estrategia interessante em alguma situações é utilizar o useEffect apenas uma vez
+- Para isso precisa de um array de depêndencias vazio 
+- E ao renderizar o componente a lógica ja vai ser executada
+
+useEffect com array de depêndencias 
+- Uma maneira de controlar quando o useEffect sera executado é colocando algiim item no array de depêndencias
+- Assim, sempre que o item for alterado, teremos o useEffect sendo executado novamente 
+- Isso fornece um total controle de quando a função deve ou não ser executada  
+
+Limpeza do useEffect
+- Alguns efeitos precisam ter uma técnica de cluanup para garantir o seu funcionamento 
+- Não fazer isso pode gerar erros  comportamentos indesejados 
