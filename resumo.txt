@@ -505,3 +505,15 @@ Custom Hook = função com hooks que reaproveita lógica entre componentes.
 
 React dev Tools 
 - É uma extensão do navegador que na tela conseguimos entender o que o react está gerando por meio do nosso codigo
+
+Projeto ReactGram
+React com redux, Back end com Node utilizando express e mongo db atlas para banco de dados 
+backen:
+- bcryptjs = Serve para criptografar senhas antes de salvar no banco.
+- cors = Permite que seu frontend (React) consiga fazer requisições para o backend (Node/Express) sem bloquear.
+- dotenv = Permite criar variáveis de ambiente em um arquivo .env
+- express = Framework do Node.js que facilita a criação de APIs e servidores web.
+- express validator = Middleware para validar dados vindos das requisições (ex: email válido, senha com tamanho mínimo etc).
+- jsonwebtoken = Usado para criar e validar tokens JWT, que servem para autenticação de usuários.
+- mongoose = ODM (Object Data Modeling) para trabalhar com o banco MongoDB.
+nodemon = dev dependency que reinicia automaticamente o seu servidor sempre que você salva alguma alteração no código.
