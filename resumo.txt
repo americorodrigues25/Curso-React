@@ -474,7 +474,6 @@ useContext
 - Envolver os componentes que recebrão valores compartilhados 
 - Compartilha dados entee componentes sem precisar ficar passando props entre eles
 
-
 useRef
 - Pode ser utilizado como useState para gerênciar valores 
 - A diferença é que ele é um objeto, seu valor está na propriedade current 
@@ -482,3 +481,27 @@ useRef
 
 useRef e o DOM 
 - Pode ser utilizado para selecionar elementos do JSX
+
+useCallback
+- Basicamente ele memoriza ua função, fazendo ela não ser reconstruida a cada renderização de um componente 
+- O primeiro caso é quando estamos prezando a performance, então queremos que uma função muito complexa não seja reconstruida toda vez
+- ja o segundo é quando o proprio react nos indica que uma função deveria estar contida em um useCallback, para evitar problemas de performance
+
+useMemo
+- Garante a referência de um objeto, fazendo que algo possa ser atrelado a uma referencia e não a um valor
+
+useLayoutEffect
+- Precido com o useEffect, mas a grande diferença é que este hook roda antes de renderizar o componente
+- Ou seja, o hook é sincrono, bloquando o carregamento da página para o sucesso da sua funcionalidadev
+- A ideia é executar algo antes que o usuario veja a página
+
+useImperatuveHandle
+- Com este hook temos como adicionar ações em um outro componente de forma imperariva 
+- Como não pode passar refs como props, precisamos usar uma função fowardref
+
+Custom hooks 
+Custom Hook = função com hooks que reaproveita lógica entre componentes. 
+- Muitas vezes para abstrair funções complexas do componente ou simplesmente reaproveitar código
+
+React dev Tools 
+- É uma extensão do navegador que na tela conseguimos entender o que o react está gerando por meio do nosso codigo
