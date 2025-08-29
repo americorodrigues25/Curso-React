@@ -517,3 +517,5 @@ backen:
 - jsonwebtoken = Usado para criar e validar tokens JWT, que servem para autenticação de usuários.
 - mongoose = ODM (Object Data Modeling) para trabalhar com o banco MongoDB.
 nodemon = dev dependency que reinicia automaticamente o seu servidor sempre que você salva alguma alteração no código.
+- Postman 
+- DB Atlas
