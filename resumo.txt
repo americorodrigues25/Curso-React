@@ -508,7 +508,7 @@ React dev Tools
 
 Projeto ReactGram
 React com redux, Back end com Node utilizando express e mongo db atlas para banco de dados 
-backen:
+backend:
 - bcryptjs = Serve para criptografar senhas antes de salvar no banco.
 - cors = Permite que seu frontend (React) consiga fazer requisições para o backend (Node/Express) sem bloquear.
 - dotenv = Permite criar variáveis de ambiente em um arquivo .env
@@ -518,4 +518,5 @@ backen:
 - mongoose = ODM (Object Data Modeling) para trabalhar com o banco MongoDB.
 nodemon = dev dependency que reinicia automaticamente o seu servidor sempre que você salva alguma alteração no código.
 - Postman 
-- DB Atlas
+- DB Atlas 
+frontend 

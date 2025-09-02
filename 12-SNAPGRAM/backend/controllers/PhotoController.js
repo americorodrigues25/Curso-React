@@ -108,9 +108,140 @@ const getUserPhotos = async (req, res) => {
   return res.status(200).json(photos);
 };
 
+// get photo by id
+const getPhotoById = async (req, res) => {
+  const { id } = req.params;
+
+  const photo = await Photo.findById(new mongoose.Types.ObjectId(id));
+
+  // check if photo exist
+  if (!photo) {
+    res.status(404).json({ errors: ["Foto não encontrada."] });
+    return;
+  }
+
+  res.status(200).json(photo);
+};
+
+// update a photo
+const updatePhoto = async (req, res) => {
+  const { id } = req.params;
+  const { title } = req.body || {};
+
+  const reqUser = req.user;
+
+  const photo = await Photo.findById(id);
+
+  if (!photo) {
+    return res.status(404).json({ errors: ["Foto não encontrada."] });
+  }
+
+  if (!photo.userId.equals(reqUser._id)) {
+    return res.status(422).json({
+      errors: ["Ocorreu um erro, por favor tente novamente mais tarde."],
+    });
+  }
+
+  if (title) {
+    photo.title = title;
+    await photo.save();
+    return res
+      .status(200)
+      .json({ photo, message: "Foto atualizada com sucesso!" });
+  } else {
+    return res.status(400).json({ errors: ["Nenhum campo para atualizar."] });
+  }
+};
+
+// like/dislike toggle functionality
+const toggleLikePhoto = async (req, res) => {
+  const { id } = req.params;
+  const reqUser = req.user;
+
+  const photo = await Photo.findById(id);
+
+  // check if photo exists
+  if (!photo) {
+    return res.status(404).json({ errors: ["Foto não encontrada."] });
+  }
+
+  // check if user already liked
+  const alreadyLiked = photo.likes.includes(reqUser._id);
+
+  if (alreadyLiked) {
+    // remove like (dislike)
+    photo.likes = photo.likes.filter(
+      (userId) => userId.toString() !== reqUser._id.toString()
+    );
+    await photo.save();
+    return res.status(200).json({
+      photoId: id,
+      userId: reqUser._id,
+      message: "Like removido da foto.",
+    });
+  } else {
+    // add like
+    photo.likes.push(reqUser._id);
+    await photo.save();
+    return res.status(200).json({
+      photoId: id,
+      userId: reqUser._id,
+      message: "Foto curtida com sucesso.",
+    });
+  }
+};
+
+// comment functionality
+const commentPhoto = async (req, res) => {
+  const { id } = req.params;
+  const { comment } = req.body;
+
+  const reqUser = req.user;
+
+  const user = await User.findById(reqUser._id);
+
+  const photo = await Photo.findById(id);
+
+  if (!photo) {
+    res.status(404).json({ errors: ["Foto não encontrada."] });
+    return;
+  }
+
+  // put comment in the array comments
+  const userComment = {
+    comment,
+    username: user.name,
+    userImage: user.profileImage,
+    userId: user._id,
+  };
+
+  photo.comments.push(userComment);
+
+  await photo.save();
+
+  res.status(200).json({
+    comment: userComment,
+    message: "O comentario foi adicionado com sucesso!",
+  });
+};
+
+// search photos by title
+const searchPhotos = async (req, res) => {
+  const { q } = req.query;
+
+  const photos = await Photo.find({ title: new RegExp(q, "i") }).exec();
+
+  res.status(200).json(photos);
+};
+
 module.exports = {
   insertPhoto,
   deletePhoto,
   getAllPhotos,
   getUserPhotos,
+  getPhotoById,
+  updatePhoto,
+  toggleLikePhoto,
+  commentPhoto,
+  searchPhotos,
 };
