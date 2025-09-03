@@ -97,7 +97,7 @@ const update = async (req, res) => {
 
   const reqUser = req.user;
 
-  const user = await User.findById(reqUser._id).select("-password");
+  const user = await User.findById(reqUser._id);
 
   if (name) {
     user.name = name;
@@ -121,7 +121,10 @@ const update = async (req, res) => {
 
   await user.save();
 
-  res.status(200).json(user);
+  // remove a senha antes de enviar
+  const { password: _, ...userWithoutPassword } = user.toObject();
+
+  res.status(200).json(userWithoutPassword);
 };
 
 // get user by id
