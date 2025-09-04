@@ -35,7 +35,7 @@ const Navbar = () => {
 
   return (
     <nav id="nav">
-      <Link to="/">SnapGram</Link>
+      <Link to="/" className="logo">Snap<span className="span_logo">Gram</span></Link>
       <form id="search_form">
         <BsSearch />
         <input type="text" placeholder="Pesquisar" />

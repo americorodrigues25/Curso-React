@@ -7,6 +7,20 @@
   padding: 0.1rem 1rem;
 }
 
+#nav .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #ffffff;
+   
+}
+
+#nav .span_logo {
+  color: #1e88e5;
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
 #search_form {
   position: relative;
   width: 20%;
