@@ -14,6 +14,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 // redux 
 import { getUserDetails } from "../../slices/userSlice";
+import { publishPhoto, resetMessage, getUserPhotos, deletePhoto } from "../../slices/photoSlice";
 
 const Profile = () => {
 
@@ -22,6 +23,15 @@ const Profile = () => {
 
     const { user, loading } = useSelector((state) => state.user);
     const { user: userAuth } = useSelector((state) => state.auth);
+    const {
+        photos,
+        loading: loadingPhoto,
+        message: messagePhoto,
+        error: errorPhoto
+    } = useSelector((state) => state.photo);
+
+    const [title, setTile] = useState("");
+    const [image, setImage] = useState("");
 
     // photo upload
     const newPhotoForm = useRef();
@@ -30,10 +40,50 @@ const Profile = () => {
     // load user data 
     useEffect(() => {
         dispatch(getUserDetails(id));
+        dispatch(getUserPhotos(id));
     }, [dispatch, id]);
 
+    const handleFile = (e) => {
+        //  image preview
+        const image = e.target.files[0];
+        setImage(image);
+    };
+
+    const resetComponentMessage = () => {
+        setTimeout(() => {
+            dispatch(resetMessage());
+        }, 2000);
+    }
+
     const submitHandle = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+
+        const photoData = {
+            title,
+            image
+        }
+
+        // build form data
+        const formdata = new FormData();
+
+        const photoFormData = Object.keys(photoData).forEach((key) =>
+            formdata.append(key, photoData[key])
+        );
+
+        formdata.append("photo", photoFormData);
+
+        dispatch(publishPhoto(formdata));
+
+        setTile("");
+
+        resetComponentMessage();
+    }
+
+    // delete a photo
+    const handleDelete = (id) => {
+        dispatch(deletePhoto(id))
+
+        resetComponentMessage();
     }
 
     if (loading) {
@@ -58,18 +108,46 @@ const Profile = () => {
                         <form onSubmit={submitHandle}>
                             <label>
                                 <span>Título para foto:</span>
-                                <input type="text" placeholder="Digite um título" />
+                                <input type="text" placeholder="Digite um título" onChange={(e) => setTile(e.target.value)} value={title || ""} />
                             </label>
                             <label>
                                 <span>Imagem:</span>
-                                <input type="file" />
+                                <input type="file" onChange={handleFile} />
                             </label>
-                            <input type="submit" value="Compartilhar" />
+                            {!loadingPhoto && <input type="submit" value="Compartilhar" />}
+                            {loadingPhoto && <input type="submit" value="Aguarde..." disabled />}
                         </form>
                     </div>
+                    {errorPhoto && <Message msg={errorPhoto} type="error" />}
+                    {messagePhoto && <Message msg={messagePhoto} type="success" />}
                 </>
             )}
-        </div>
+            <div className="user_photos">
+                <h2>Fotos publicadas:</h2>
+                <div className="photos_container">
+                    {photos && photos.map((photo) => (
+                        <div className="photo" key={photo._id}>
+                            {photo.image && (
+                                <img
+                                    src={`${upload}photos/${photo.image}`}
+                                    alt={photo.title}
+                                />
+                            )}
+                            {id === userAuth._id ? (
+                                <div className="actions">
+                                    <Link to={`/photos/${photo._id}`}>
+                                        <BsFillEyeFill />
+                                    </Link>
+                                    <BsPencilFill />
+                                    <BsXLg onClick={() => handleDelete(photo._id)} />
+                                </div>
+                            ) : (<Link className="btn" to={`/photos/${photo._id}`}>Ver</Link>)}
+                        </div>
+                    ))}
+                    {photos.length === 0 && <p> Ainda não a fotos publicadas.</p>}
+                </div>
+            </div>
+        </div >
     )
 }
 
