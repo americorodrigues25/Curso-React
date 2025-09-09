@@ -38,10 +38,46 @@ const deletePhoto = async (id, token) => {
 
 // update a photo
 const updtatePhoto = async (data, id, token) => {
-  const config = ("PUT", data, token);
+  const config = requestConfig("PUT", data, token);
 
   try {
     const res = await fetch(`${api}/photos/${id}`, config);
+    return await res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// get a photo by id
+const getPhoto = async (id, token) => {
+  const config = requestConfig("GET", null, token);
+
+  try {
+    const res = await fetch(`${api}/photos/${id}`, config);
+    return await res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// like a photo
+const like = async (id, token) => {
+  const config = requestConfig("PUT", null, token);
+
+  try {
+    const res = await fetch(`${api}/photos/like/${id}`, config);
+    return await res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// add comments to a photo
+const comment = async (data, id, token) => {
+  const config = requestConfig("PUT", data, token);
+
+  try {
+    const res = await fetch(`${api}/photos/comment/${id}`, config);
     return await res.json();
   } catch (error) {
     console.log(error);
@@ -53,6 +89,9 @@ const photoService = {
   getUserPhotos,
   deletePhoto,
   updtatePhoto,
+  getPhoto,
+  like,
+  comment,
 };
 
 export default photoService;

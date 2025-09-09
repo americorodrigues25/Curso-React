@@ -175,8 +175,7 @@ const toggleLikePhoto = async (req, res) => {
     );
     await photo.save();
     return res.status(200).json({
-      photoId: id,
-      userId: reqUser._id,
+      ...photo.toObject(),
       message: "Like removido da foto.",
     });
   } else {
@@ -184,8 +183,7 @@ const toggleLikePhoto = async (req, res) => {
     photo.likes.push(reqUser._id);
     await photo.save();
     return res.status(200).json({
-      photoId: id,
-      userId: reqUser._id,
+      ...photo.toObject(),
       message: "Foto curtida com sucesso.",
     });
   }
