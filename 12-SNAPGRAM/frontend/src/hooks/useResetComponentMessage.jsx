@@ -1,7 +1,10 @@
-//  redux
+// redux
+import { useDispatch } from "react-redux";
 import { resetMessage } from "../slices/photoSlice";
 
-export const useResetComponentMessage = (dispatch) => {
+export const useResetComponentMessage = () => {
+  const dispatch = useDispatch();
+
   return () => {
     setTimeout(() => {
       dispatch(resetMessage());
