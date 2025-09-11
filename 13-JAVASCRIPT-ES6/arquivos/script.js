@@ -76,3 +76,95 @@ products.map((product) => {
 });
 
 console.log(products);
+
+// destructuring com arrays
+const fruits = ["Maça", "Banana", "Laranja"];
+
+const [f1, f2, f3] = fruits;
+
+console.log(f2);
+
+// destructuring com objetos
+const productsDetails = {
+  name: "teclado",
+  price: 179.99,
+  category: "Periféricos",
+  color: "Cinza",
+};
+
+const {
+  name: productName,
+  price,
+  category: productCategory,
+  color,
+} = productsDetails;
+
+console.log(
+  `O nome do produto é ${productName}, custa R$ ${price}, pertence a categoria ${productCategory} e a cor é ${color}`
+);
+
+// spread operator com arrays
+const a1 = [1, 2, 3];
+const a2 = [4, 5, 6];
+
+const a3 = [...a1, ...a2];
+console.log(a3);
+
+const a4 = [0, ...a1, 4];
+console.log(a4);
+
+// spread operator com objetos
+const carName = { name: "Gol" };
+const CarBrand = { brand: "VW" };
+const otherInfos = { km: 15000, price: 49000 };
+
+const car = { ...carName, ...CarBrand, ...otherInfos, wheels: 4 };
+
+console.log(car);
+
+// classes
+class Product {
+  constructor(name, price) {
+    this.name = name;
+    this.price = price;
+  }
+
+  productWithDiscount(discount) {
+    return this.price * ((100 - discount) / 100);
+  }
+}
+
+const shirt = new Product("Camiseta", 70);
+console.log(shirt.name);
+
+console.log(shirt.productWithDiscount(10));
+
+console.log(shirt.productWithDiscount(50));
+
+const tenis = new Product("Tenis", 499);
+console.log(tenis.productWithDiscount(20));
+
+// heranca
+class ProductsWithAtributes extends Product {
+  constructor(name, price, colors) {
+    super(name, price);
+    this.colors = colors;
+  }
+
+  showColors() {
+    console.log("As cores são:");
+    this.colors.forEach((color) => {
+      console.log(color);
+    });
+  }
+}
+
+const hat = new ProductsWithAtributes("Chapéu", 59.99, [
+  "Preto",
+  "Azul",
+  "Verde",
+]);
+
+console.log(hat.name);
+console.log(hat.productWithDiscount(30));
+hat.showColors();

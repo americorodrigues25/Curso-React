@@ -521,4 +521,7 @@ nodemon = dev dependency que reinicia automaticamente o seu servidor sempre que 
 - DB Atlas 
 frontend 
 
-
+API 
+É um acrônimo para interface de programação de aplicações 
+Uma forma de comunicação entre aplicações 
+Baseada em requisições e respostas
