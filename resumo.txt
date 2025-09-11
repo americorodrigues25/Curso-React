@@ -520,3 +520,5 @@ nodemon = dev dependency que reinicia automaticamente o seu servidor sempre que 
 - Postman 
 - DB Atlas 
 frontend 
+
+
