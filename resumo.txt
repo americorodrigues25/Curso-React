@@ -558,3 +558,33 @@ postman
 - Utilizado para testar API 
 - Podendo criar o back-end antes ou separado do front 
 - pode simular verbos, corpo de requisição, inserir headers, tudo que é possivel em uma aplicação web
+
+Testando rota com postman 
+- É necessario configurar o client 
+- Deve inserir o verbo correto para a rota 
+- Configurar o endpoint, que é a URL onde nossa rota foi estabelecida
+- E por fim, enviando a requisição, recebemos a resposta
+
+Rota POST 
+- Para criar uma rota POST, vamos utilizar o método post do express 
+- Pode-se extrair os dados da requisição acessando req.body 
+- Da mesma meneira que no get, pode retornar uma resposta como JSON pela API
+- POST no postman você muda o método de requisição e coloca os dados no body 
+
+status na resposta 
+- Exibe mensagens de sucesso ou erro
+- Precisa entre res e o método json definir um numero de status HTTP 
+
+Introdução ao typescript
+- É um superset para linguagem JS 
+- Ou seja, adiciona funções de JS como a declaração de tipos de variavel 
+- Pode ser usado com frameworks como Express e react 
+- Precisa ser compilado em JS, ou seja, Não executa TS 
+- Desenvolvido e mantido pela Microsoft 
+
+Porque usar TS 
+- Adiciona confiabilidade ao programa (tipos)
+- Provê nova funcionalidades a JS, como interfaces
+- Podemos verificar os erros antes da execução do coigo, ou seja, no desenvolvimento
+- Deixa o JS mais explicito, diminuindo a quantidade de bugs 
+- O comando 'tsc nome do arquivo.ts' cria um arquivo js com o mesmo conteudo que tem no arquivo ts
