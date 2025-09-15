@@ -521,4 +521,40 @@ nodemon = dev dependency que reinicia automaticamente o seu servidor sempre que 
 - DB Atlas 
 frontend 
 
+API Rest e RestFul 
+Rest 
+- É um conjunto de princípios/estilo arquitetural para criar APIs.
+RestFul 
+- É uma API que segue corretamente os princípios do REST.
+- Ou seja, uma aplicação que foi construída respeitando as regras do REST, como:
+* Uso correto dos métodos HTTP
+* Endpoints organizados e claros (ex: /usuarios/1)
+* Retorno em formatos padronizados (JSON, XML, etc.)
+* Comunicação stateless (sem armazenar estado no servidor entre as requisições)
 
+Restful
+Método HTTP	   Rota	                    Função (controller)	        O que faz
+POST	          /photos	                insertPhoto	                Cria uma nova foto
+DELETE	        /photos/:id	            deletePhoto	                Deleta uma foto pelo ID
+GET	            /photos	                getAllPhotos	              Lista todas as fotos
+GET	            /photos/user/:id	      getUserPhotos	              Lista todas as fotos de um usuario
+--------------------------------------------------------------------------------------------------------
+
+
+Não Restful 
+Método HTTP	        Rota	                      O que faria
+POST	              /createPhoto	              Criar foto
+POST	              /deletePhoto?id=123	        Deletar foto
+GET	                /getAllPhotos	              Listar todas as fotos
+GET	                /getUserPhotos?id=123       Listar fotos de um usuário
+GET	                /getPhotoById?id=123	      Buscar foto por id
+---------------------------------------------------------------------------------------------------------
+
+SPA - Single Page Application 
+É quando a aplicação possui front-end separado do back-end 
+Ou seja, uma API para o backend 
+
+postman 
+- Utilizado para testar API 
+- Podendo criar o back-end antes ou separado do front 
+- pode simular verbos, corpo de requisição, inserir headers, tudo que é possivel em uma aplicação web
