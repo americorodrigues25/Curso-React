@@ -10,6 +10,7 @@ import Destructuring, { Category } from "./components/Destructuring";
 
 // 6 - useState
 import State from "./components/State";
+import Context from "./components/Context";
 
 // 9 - type
 type textOrNull = string | null;
@@ -72,6 +73,7 @@ function App() {
         <State />
         {myText && <p>Tem texto na variavel</p>}
         {mySecondText && <p>Tem texto na variavel</p>}
+        <Context />
       </div>
     </AppContext.Provider>
   );
