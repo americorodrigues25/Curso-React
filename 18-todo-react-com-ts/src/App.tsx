@@ -9,6 +9,9 @@ import Footer from './components/Footer';
 import TaskForm from './components/TaskForm';
 import TaskList from './components/TaskList';
 
+// interface
+import { ITask } from './interfaces/Taks';
+
 
 function App() {
   return (
